@@ -1,12 +1,12 @@
-/* ============================================================
+/*
    Proyecto: Sistema de Gestión de Biblioteca
    Asignatura: Programación Avanzada
    Script de creación de la base de datos BibliotecaDB
    Motor: SQL Server Express
-   ============================================================ */
+*/
 
 -- Si la base ya existe se elimina para poder volver a ejecutar el script.
--- OJO: esto borra todos los datos que tenga.
+-- Al hacer esto se borran todos los datos que tenga.
 USE master;
 GO
 
@@ -23,9 +23,9 @@ GO
 USE BibliotecaDB;
 GO
 
-/* ------------------------------------------------------------
+/*
    TABLA AUTORES
-   ------------------------------------------------------------ */
+*/
 CREATE TABLE Autores (
     IdAutor          INT IDENTITY(1,1) NOT NULL,
     Nombre           NVARCHAR(60)  NOT NULL,
@@ -36,9 +36,9 @@ CREATE TABLE Autores (
 );
 GO
 
-/* ------------------------------------------------------------
+/*
    TABLA EDITORIALES
-   ------------------------------------------------------------ */
+*/
 CREATE TABLE Editoriales (
     IdEditorial  INT IDENTITY(1,1) NOT NULL,
     Nombre       NVARCHAR(100) NOT NULL,
@@ -50,11 +50,11 @@ CREATE TABLE Editoriales (
 );
 GO
 
-/* ------------------------------------------------------------
+/* 
    TABLA LIBROS
    Existencias = total de ejemplares que tiene la biblioteca
    Disponibles = ejemplares que se pueden prestar en este momento
-   ------------------------------------------------------------ */
+*/
 CREATE TABLE Libros (
     IdLibro          INT IDENTITY(1,1) NOT NULL,
     ISBN             NVARCHAR(20)  NOT NULL,
@@ -77,9 +77,9 @@ CREATE TABLE Libros (
 );
 GO
 
-/* ------------------------------------------------------------
+/*
    TABLA USUARIOS
-   ------------------------------------------------------------ */
+*/
 CREATE TABLE Usuarios (
     IdUsuario      INT IDENTITY(1,1) NOT NULL,
     Documento      NVARCHAR(20)  NOT NULL,
@@ -93,12 +93,12 @@ CREATE TABLE Usuarios (
 );
 GO
 
-/* ------------------------------------------------------------
+/*
    TABLA PRESTAMOS
    Estado: 'Prestado' o 'Devuelto'
    Si está prestado no tiene fecha de devolución,
    si está devuelto la fecha de devolución es obligatoria.
-   ------------------------------------------------------------ */
+*/
 CREATE TABLE Prestamos (
     IdPrestamo               INT IDENTITY(1,1) NOT NULL,
     IdUsuario                INT          NOT NULL,
@@ -122,9 +122,9 @@ CREATE TABLE Prestamos (
 );
 GO
 
-/* ============================================================
+/*
    DATOS DE PRUEBA
-   ============================================================ */
+*/
 
 INSERT INTO Autores (Nombre, Apellido, Nacionalidad, FechaNacimiento) VALUES
 ('Gabriel',   'García Márquez',    'Colombiana',     '1927-03-06'),
